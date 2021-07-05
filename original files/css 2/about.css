@@ -1,0 +1,39 @@
+/* ABOUT REALTED CSS */
+.about-circle {
+    height: 13.5rem;
+    width: 20rem;
+}
+.about-txt{
+    color: var(--txt-color);
+    font-family: var(--body-txt);
+    font-size: 1.2em;
+    text-align: justify;
+    margin-top: 12rem;
+}
+.photo-triangle {
+    height: 19rem;
+    margin: 17.5rem 0 0 0;
+}
+
+/* FOOTER RELATED CONTENT */
+.about-linkedin{
+    color: var(--green)
+}   
+.about-github{
+    color: var(--blue)
+}
+
+/* MEDIA QUERY RELATED CSS */
+@media only screen and (max-width: 991px) {
+    .about-circle{
+        margin-top: 2rem;
+    }
+    .photo-triangle{
+        margin: 0 auto 2rem auto;
+    }
+    .about-txt{
+        max-width: 18rem;
+        margin: 2rem auto;
+    }
+    
+}
