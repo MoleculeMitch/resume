@@ -1,0 +1,14 @@
+/* FOOTER RELATED CONTENT */
+.footer-wrapper{
+    width: fit-content;
+    display: flex;
+    text-align: left;
+}
+.fab{
+    font-size: 40px;
+    margin: 0 .5rem;
+}
+.fab:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
