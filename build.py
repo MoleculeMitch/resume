@@ -13,9 +13,9 @@ mid_contact_html = open('contents/contact.html').read()
 index_html = top_html + mid_index_html + bottom_html
 blog_html = top_html + mid_blog_html + bottom_html
 contact_html = top_html + mid_contact_html + bottom_html
-
+print(index_html)
 
 #writing/creating the new html pages: stored in html directory
-index = open('html/index.html', 'w+').write(index_html)
-blog = open('html/blog.html', 'w+').write(blog_html)
-contact = open('html/contact.html', 'w+').write(contact_html)
+index = open('docs/index.html', 'w+').write(index_html)
+blog = open('docs/blog.html', 'w+').write(blog_html)
+contact = open('docs/contact.html', 'w+').write(contact_html)
