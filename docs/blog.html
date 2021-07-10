@@ -31,42 +31,46 @@
         <div class='row menu-row'>
             <div class='col'>
                 <ul class='menu'><!-- class name, active changes depending on html file. therefore include below in unique content files -->
-            <li><a href='../docs/index.html'>ABOUT</a></li>
-            <li> <a href='../docs/blog.html' class='active'>BLOG</a></li>
+            <li><a href='./index.html'>ABOUT</a></li>
+            <li> <a href='./blog.html'>BLOG</a></li>
 <!-- <li> <a href='*'>PROJECTS</a></li> -->
-            <li> <a href='../docs/contact.html'>CONTACT</a></li>
+            <li> <a href='./contact.html' class='active'>CONTACT</a></li>
         </ul>
     </div>
 </div>
+
 <!-- content below here CHANGES per html files -->
-<div class='row-fluid blog-row'>
-    <div class='col-fluid blog-col'>
-        <img src='../docs/pentagontxt2.png' alt='pentagon' class='pentagon'/>
+<div class='row-fluid'>
+    <div class='col squares-col'>
+        <img src='./squaretxt.png' alt='squares' class='sqaures-txt'/>
     </div>
-    <div class='col-fluid blog-1'>
-        <div class='blog1-wrapper'>
-                <img src='../docs/octogonphoto.png' alt='kickstart' class='kick-octogon'/>
-                <h3 class='blog1-title'>I'VE JOINED A BOOT CAMP!</h3>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis ante nec sem imperdiet
-                pellentesque. In velit tortor, interdum sed ex sit amet, facilisis dictum risus. Duis luctus
-                enim vulputate enim commodo commodo. Cras in scelerisque nunc. Mauris sit amet tincidunt risus.
-                Aenean ut urna congue, sollicitudin lacus at, vehicula quam. Mauris euismod, elit iaculis
-                viverra ultricies, metus massa volutpat urna, id porttitor enim neque sed augue. Mauris vel
-                neque volutpat, elementum magna non, porttitor tortor. Cras tristique mollis felis non commodo.
-                Sed luctus massa quam. Donec sagittis nisl nisi, vel ultrices diam vestibulum eu. Duis enim
-                nunc, accumsan in libero egestas, fringilla dictum urna. Praesent eu odio eget tellus faucibus
-                volutpat.</p>
-            
+    <div class='row-fluid'>
+        <div class='col form-col'>
+           <form action='' class='contact-form'>
+               <label for="name">Name</label>
+               <input type="text" id="fname" name="name" placeholder="Name">
+               
+               <label for="lname">Email Address</label>
+               <input type="text" id="email" name="email" placeholder="example@email.com">
+
+
+               <label for="subject">Message</label>
+               <textarea id="message" name="message" placeholder="Tell me about your projects!" style="height:150px"></textarea>
+
+               <button class='submit-btn'type="submit" form="nameform" value="Submit">Submit</button>
+           </form>
         </div>
+
     </div>
+
 </div>
 
 <!-- font awesome class name changes per page. therefore include this block with unique content file -->
 <div class='row'>
     <div class='col-fluid'>
         <div class='footer-wrapper'>
-            <i class="fab fa-linkedin blog-linkedin"></i>
-            <i class="fab fa-github blog-github"></i>
+            <i class="fab fa-linkedin contact-linkedin"></i>
+            <i class="fab fa-github contact-github"></i>
         </div>
     </div>
 </div></div>

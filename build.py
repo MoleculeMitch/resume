@@ -1,8 +1,28 @@
 # phase1: refactor this code into a main() function
-
-print('building ssg')
-
 def main():
+    print('building ssg')
+    pages = [{
+        'filename': 'contents/index.html',
+        'output': 'docs/index.html',
+        'title': 'About',
+    },
+    {
+        'filename': 'contents/blog.html',
+        'output': 'docs/blog.html',
+        'title': 'Blog',
+    },
+    {
+        'filename': 'contents/contact.html',
+        'output': 'docs/contact.html',
+        'title': 'Contact',
+    }]
+
+    for page in pages:
+        title = page['title']
+        file_name = page['filename']
+        output = page['output']
+
+
 # variables that read top and bottom html
     top_html = open('templates/top.html').read()
     bottom_html = open('templates/bottom.html').read()
