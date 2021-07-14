@@ -1,8 +1,7 @@
 # phase1: refactor this code into a main() function
 #phase2: write a forloop that loops through the list/dict and executes the templating
-def main():
-    print('building ssg')
-    pages = [{
+def get_pages():
+    return [{
         'filename': 'contents/index.html',
         'output': 'docs/index.html',
         'title': 'About',
@@ -17,42 +16,21 @@ def main():
         'output': 'docs/contact.html',
         'title': 'Contact',
     }]
+#  get pages returns the list of dict get_pages()
+def write_page(title, filename, output):
+    template = open('templates/base.html').read() 
+    content = open(filename).read()
+    combined_content = template.replace('{{content}}', content)
+    open(output, 'w+').write(combined_content)
 
-    template = open('templates/base.html').read()
-
-    for page in pages:
+def main():
+    for page in get_pages():
         title = page['title']
         filename = page['filename']
         output = page['output']
-
-
-        if filename == 'contents/index.html' and title == 'About' and output == 'docs/index.html':
-
-            print('filename =', filename, 'title =', title, 'output =', output)
-            content_about = open(filename).read()
-            combined_content_about = template.replace('{{content}}', content_about)
-            open(output, 'w+').write(combined_content_about)
-
-        elif filename == 'contents/blog.html' and title == 'Blog' and output == 'docs/blog.html':
-
-            print('filename =', filename, 'title =', title, 'output =', output)
-            content_blog = open(filename).read()
-            combined_content_blog = template.replace('{{content}}', content_blog)
-            open(output, 'w+').write(combined_content_blog)
-
-        elif filename == 'contents/contact.html' and title == 'Contact' and output == 'docs/contact.html':
-
-            print('filename =', filename, 'title =', title, 'output =', output)
-            content_contact = open(filename).read()
-            combined_content_contact = template.replace('{{content}}', content_contact)
-            open(output, 'w+').write(combined_content_contact)
-        else: pass
-
-
-
-
+        print('filename =', filename, 'title =', title, 'output =', output)
+        write_page(title, filename, output)      
 main()
-
 
 
 
@@ -77,4 +55,10 @@ main()
     # open('docs/contact.html', 'w+').write(contact_html)
 
 
+#def main():
+#     name= 'dan'
+#     func(name)
+#def func(name):
+#     print('hello', name)
+# main()
 
