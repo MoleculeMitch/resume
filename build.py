@@ -15,13 +15,26 @@ def get_pages():
         'filename': 'contents/contact.html',
         'output': 'docs/contact.html',
         'title': 'Contact',
-    }]
-#  get pages returns the list of dict get_pages()
+    }] 
+
+
 def write_page(title, filename, output):
-    template = open('templates/base.html').read() 
+    template = open('templates/base.html').read()
     content = open(filename).read()
-    combined_content = template.replace('{{content}}', content)
+
+    if title == 'About':
+        combined_content = template.replace('{{about_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title)
+        print(template)
+    elif title == 'Blog':
+        combined_content = template.replace('{{blog_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title).replace('about-linkedin', 'blog-linkedin').replace('about-github', 'blog-github')
+    elif title == 'Contact':
+        combined_content = template.replace('{{contact_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title).replace('about-linkedin', 'contact-linkedin').replace('about-github', 'contact-github')
+    else: pass
+
     open(output, 'w+').write(combined_content)
+    
+    
+    
 
 def main():
     for page in get_pages():
@@ -29,36 +42,7 @@ def main():
         filename = page['filename']
         output = page['output']
         print('filename =', filename, 'title =', title, 'output =', output)
-        write_page(title, filename, output)      
+        write_page(title, filename, output)
+
 main()
-
-
-
-
-# variables that read top and bottom html
-    # top_html = open('templates/top.html').read()
-    # bottom_html = open('templates/bottom.html').read()
-
-#variables that read the middle contents of html
-    # mid_index_html = open('contents/index.html').read()
-    # mid_blog_html = open('contents/blog.html').read()
-    # mid_contact_html = open('contents/contact.html').read()    
-
-# combining tops + html middle contents + bottoms
-    # index_html = top_html + mid_index_html + bottom_html
-    # blog_html = top_html + mid_blog_html + bottom_html
-    # contact_html = top_html + mid_contact_html + bottom_html
-
-#writing/creating the new html pages: stored in html directory, this is the output
-    # open('docs/index.html', 'w+').write(index_html)
-    # open('docs/blog.html', 'w+').write(blog_html)
-    # open('docs/contact.html', 'w+').write(contact_html)
-
-
-#def main():
-#     name= 'dan'
-#     func(name)
-#def func(name):
-#     print('hello', name)
-# main()
 

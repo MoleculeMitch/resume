@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABOUT</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./about.css">
     <link rel="stylesheet" href="./blog.css">
@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&family=Yantramanav:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div class="container-fluid master-container">
@@ -28,12 +29,13 @@
             </div>
         </div>
 
-        <div class='row menu-row'>
+        <div class='row menu-row'> 
             <div class='col'>
                 <ul class='menu'>
-                    <li><a href='./index.html' class='active' >ABOUT</a></li>
-                    <li> <a href='./blog.html'>BLOG</a></li>
-                    <li> <a href='./contact.html'>CONTACT</a></li>
+                    <!-- replace menu-link with 'active' when on browser page -->
+                    <li><a href='./index.html' class='{{about_xtra_class}}'> ABOUT</a></li>
+                    <li> <a href='./blog.html' class= '{{blog_xtra_class}}'> BLOG</a></li>
+                    <li> <a href='./contact.html' class= 'active'> CONTACT</a></li>
                 </ul>
             </div>
         </div>
@@ -67,18 +69,16 @@
 
 </div>
 
-<!-- font awesome class name changes per page. therefore include this block with unique content file -->
-<div class='row'>
-    <div class='col-fluid'>
-        <div class='footer-wrapper'>
-            <i class="fab fa-linkedin contact-linkedin"></i>
-            <i class="fab fa-github contact-github"></i>
-        </div>
-    </div>
-</div>
-
 
         <!-- bottom template -->
+        <div class='row'>
+            <div class='col-fluid footer-col'>
+                <div class='footer-wrapper'>
+                    <i class="fab fa-linkedin contact-linkedin"></i>
+                    <i class="fab fa-github contact-github"></i>
+                </div>
+            </div>
+        </div>
     </div>
     
 </body>
