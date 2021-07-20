@@ -21,18 +21,17 @@ def get_pages():
 def write_page(title, filename, output):
     template = open('templates/base.html').read()
     content = open(filename).read()
+    combined_content = template.replace('{{content}}', content).replace('{{title}}', title)
 
     if title == 'About':
-        combined_content = template.replace('{{about_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title)
-        print(template)
+        combined_content = combined_content.replace('{{about_xtra_class}}', 'active').replace('{{linkedin}}', 'about-linkedin').replace('{{github}}', 'about-github')
     elif title == 'Blog':
-        combined_content = template.replace('{{blog_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title).replace('about-linkedin', 'blog-linkedin').replace('about-github', 'blog-github')
+        combined_content = combined_content.replace('{{blog_xtra_class}}', 'active').replace('{{linkedin}}', 'blog-linkedin').replace('{{github}}', 'blog-github')
     elif title == 'Contact':
-        combined_content = template.replace('{{contact_xtra_class}}', 'active').replace('{{content}}', content).replace('{{title}}', title).replace('about-linkedin', 'contact-linkedin').replace('about-github', 'contact-github')
+        combined_content = combined_content.replace('{{contact_xtra_class}}', 'active').replace('{{linkedin}}', 'contact-linkedin').replace('{{github}}', 'contact-github')
     else: pass
 
     open(output, 'w+').write(combined_content)
-    
     
     
 
