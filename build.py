@@ -1,23 +1,10 @@
-# phase1: refactor this code into a main() function
-#phase2: write a forloop that loops through the list/dict and executes the templating
-def get_pages():
-    return [{
-        'filename': 'contents/index.html',
-        'output': 'docs/index.html',
-        'title': 'About',
-    },
-    {
-        'filename': 'contents/blog.html',
-        'output': 'docs/blog.html',
-        'title': 'Blog',
-    },
-    {
-        'filename': 'contents/contact.html',
-        'output': 'docs/contact.html',
-        'title': 'Contact',
-    }] 
+import glob
+import os
+import pprint
 
-
+# def pages():
+#     return []
+    
 def write_page(title, filename, output):
     template = open('templates/base.html').read()
     content = open(filename).read()
@@ -36,12 +23,20 @@ def write_page(title, filename, output):
     
 
 def main():
-    for page in get_pages():
-        title = page['title']
-        filename = page['filename']
-        output = page['output']
-        print('filename =', filename, 'title =', title, 'output =', output)
-        write_page(title, filename, output)
+    all_html_files = glob.glob('contents/*.html')
+    all_output_files = glob.glob('docs/*.html')
 
+    pages=[]
+    for files, file in zip(all_html_files, all_output_files):
+        filename = os.path.relpath(files)
+        output = os.path.relpath(file)
+        title_parse = os.path.basename(filename)
+        title, extension = os.path.splitext(title_parse)
+
+        pages.append({
+            'filename': filename,
+            'output': output,
+            'title': title,
+        })
+    pprint.pprint(pages, indent = 2, width = 30)
 main()
-
