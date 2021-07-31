@@ -1,24 +1,29 @@
 import glob
 import os
 import pprint
-
+from jinja2 import Template
 
     
 def write_page(title, filename, output):
-    template = open('templates/base.html').read()
-    content = open(filename).read()
-    combined_content = template.replace('{{content}}', content).replace('{{title}}', title)
+    index_html = open('contents/index.html').read()
+    template_html = open('templates/base.html').read()
+    template = Template(template_html)
 
-    if title == 'ABOUT':
-        combined_content = combined_content.replace('{{about_xtra_class}}', 'active').replace('{{linkedin}}', 'about-linkedin').replace('{{github}}', 'about-github')
-    elif title == 'BLOG':
-        combined_content = combined_content.replace('{{blog_xtra_class}}', 'active').replace('{{linkedin}}', 'blog-linkedin').replace('{{github}}', 'blog-github')
-    elif title == 'CONTACT':
-        combined_content = combined_content.replace('{{contact_xtra_class}}', 'active').replace('{{linkedin}}', 'contact-linkedin').replace('{{github}}', 'contact-github')
-    else: pass
+    result = template.render(
+        title = title,
+        filename = index_html,
+        output = output
+    )
 
-    open(output, 'w+').write(combined_content)
-    
+    # if title == 'ABOUT':
+    #     combined_content = combined_content.replace('{{about_xtra_class}}', 'active').replace('{{linkedin}}', 'about-linkedin').replace('{{github}}', 'about-github')
+    # elif title == 'BLOG':
+    #     combined_content = combined_content.replace('{{blog_xtra_class}}', 'active').replace('{{linkedin}}', 'blog-linkedin').replace('{{github}}', 'blog-github')
+    # elif title == 'CONTACT':
+    #     combined_content = combined_content.replace('{{contact_xtra_class}}', 'active').replace('{{linkedin}}', 'contact-linkedin').replace('{{github}}', 'contact-github')
+    # else: pass
+    print(result)
+    open(output, 'w+').write(template_html)
     
 
 def main():
@@ -41,6 +46,6 @@ def main():
         if title == 'INDEX':
             title = 'ABOUT'
 
-        write_page(title, filename, output)
-    pprint.pprint(pages, indent = 2, width = 30)
+    write_page(title, filename, output)
+    #pprint.pprint(pages, indent = 2, width = 30)
 main()
