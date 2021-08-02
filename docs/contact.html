@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    <title>CONTACT</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./about.css">
     <link rel="stylesheet" href="./blog.css">
@@ -33,24 +33,49 @@
             <div class='col'>
                 <ul class='menu'>
                     <!-- replace menu-link with 'active' when on browser page -->
-                    <li><a href='./index.html' class='{{about_xtra_class}}'> ABOUT</a></li>
-                    <li> <a href='./blog.html' class= '{{blog_xtra_class}}'> BLOG</a></li>
-                    <li> <a href='./contact.html' class= '{{contact_xtra_class}}'> CONTACT</a></li>
+                    <li><a href='./index.html' class=''> ABOUT</a></li>
+                    <li> <a href='./blog.html' class= ''> BLOG</a></li>
+                    <li> <a href='./contact.html' class= ''> CONTACT</a></li>
                 </ul>
             </div>
         </div>
 
 
         <!-- this is the content place holder -->
-        {{content}}
+        
+<!-- content below here CHANGES per html files -->
+<div class='row-fluid'>
+    <div class='col squares-col'>
+        <img src='./squaretxt.png' alt='squares' class='sqaures-txt'/>
+    </div>
+    <div class='row-fluid'>
+        <div class='col form-col'>
+           <form action='' class='contact-form'>
+               <label for="name">Name</label>
+               <input type="text" id="fname" name="name" placeholder="Name">
+               
+               <label for="lname">Email Address</label>
+               <input type="text" id="email" name="email" placeholder="example@email.com">
+
+
+               <label for="subject">Message</label>
+               <textarea id="message" name="message" placeholder="Tell me about your projects!" style="height:150px"></textarea>
+
+               <button class='submit-btn'type="submit" form="nameform" value="Submit">Submit</button>
+           </form>
+        </div>
+
+    </div>
+
+</div>
 
 
         <!-- bottom template -->
         <div class='row'>
             <div class='col-fluid footer-col'>
                 <div class='footer-wrapper'>
-                    <i class="fab fa-linkedin {{linkedin}}"></i>
-                    <i class="fab fa-github {{github}}"></i>
+                    <i class="fab fa-linkedin "></i>
+                    <i class="fab fa-github "></i>
                 </div>
             </div>
         </div>

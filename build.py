@@ -4,15 +4,13 @@ import pprint
 from jinja2 import Template
 
     
-def write_page(title, filename, output):
-    index_html = open('contents/index.html').read()
+def write_page(title, filename, output, pages):
     template_html = open('templates/base.html').read()
     template = Template(template_html)
 
     result = template.render(
         title = title,
-        filename = index_html,
-        output = output
+        content = open(filename).read()
     )
 
     # if title == 'ABOUT':
@@ -22,8 +20,9 @@ def write_page(title, filename, output):
     # elif title == 'CONTACT':
     #     combined_content = combined_content.replace('{{contact_xtra_class}}', 'active').replace('{{linkedin}}', 'contact-linkedin').replace('{{github}}', 'contact-github')
     # else: pass
+    # open(output, 'w+').write(combined_content)
+    open(output, 'w+').write(result)
     print(result)
-    open(output, 'w+').write(template_html)
     
 
 def main():
@@ -46,6 +45,6 @@ def main():
         if title == 'INDEX':
             title = 'ABOUT'
 
-    write_page(title, filename, output)
-    #pprint.pprint(pages, indent = 2, width = 30)
+        write_page(title, filename, output, pages)
+    pprint.pprint(pages, indent = 2, width = 30)
 main()
