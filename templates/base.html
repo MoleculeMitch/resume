@@ -32,14 +32,21 @@
         <div class='row menu-row'> 
             <div class='col'>
                 <ul class='menu'>
-                    <!-- replace menu-link with 'active' when on browser page -->
-                    <li><a href='./index.html' class='{{about_xtra_class}}'> ABOUT</a></li>
-                    <li> <a href='./blog.html' class= '{{blog_xtra_class}}'> BLOG</a></li>
-                    <li> <a href='./contact.html' class= '{{contact_xtra_class}}'> CONTACT</a></li>
+                    {% for page in pages %}
+                            <li> 
+                                <a href='{{page.clipped_filename}}' class='{%if page.title == "ABOUT"%} active {% endif %}'> {{page.title}}
+                                </a>
+                            </li>
+                    {% endfor %}
+                    
+                    <!-- <li><a href='./index.html' class='active'> ABOUT </a></li>
+                    <li> <a href='./blog.html' class= 'active'> BLOG </a></li>
+                    <li> <a href='./contact.html' class= 'active'> CONTACT </a></li>   -->
                 </ul>
             </div>
         </div>
-
+         
+        
 
         <!-- this is the content place holder -->
         {{content}}

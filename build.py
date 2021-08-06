@@ -7,22 +7,14 @@ from jinja2 import Template
 def write_page(title, filename, output, pages):
     template_html = open('templates/base.html').read()
     template = Template(template_html)
-
     result = template.render(
+        pages = pages,
         title = title,
-        content = open(filename).read()
+        content = open(filename).read(),
+        output = open(output).read(),
     )
-
-    # if title == 'ABOUT':
-    #     combined_content = combined_content.replace('{{about_xtra_class}}', 'active').replace('{{linkedin}}', 'about-linkedin').replace('{{github}}', 'about-github')
-    # elif title == 'BLOG':
-    #     combined_content = combined_content.replace('{{blog_xtra_class}}', 'active').replace('{{linkedin}}', 'blog-linkedin').replace('{{github}}', 'blog-github')
-    # elif title == 'CONTACT':
-    #     combined_content = combined_content.replace('{{contact_xtra_class}}', 'active').replace('{{linkedin}}', 'contact-linkedin').replace('{{github}}', 'contact-github')
-    # else: pass
-    # open(output, 'w+').write(combined_content)
+    
     open(output, 'w+').write(result)
-    print(result)
     
 
 def main():
@@ -34,17 +26,31 @@ def main():
         filename = os.path.relpath(files)
         output = os.path.relpath(file)
         title_parse = os.path.basename(filename).upper()
+        clipped_filename = os.path.basename(filename)
         title, extension = os.path.splitext(title_parse)
+
+        if title == 'INDEX':
+            title = 'ABOUT'
 
         pages.append({
             'filename': filename,
             'output': output,
             'title': title,
+            'clipped_filename': clipped_filename
         })
 
-        if title == 'INDEX':
-            title = 'ABOUT'
+    
+    #sort pages into new sort
+    page_sort = [1,0,2]
+    pages = [pages[i] for i in page_sort]
 
+    for page in pages:
+        title = page['title']
+        output = page['output']
+        filename = page['filename']
+        clipped_filename = page['clipped_filename']
         write_page(title, filename, output, pages)
+
+        
     pprint.pprint(pages, indent = 2, width = 30)
 main()
