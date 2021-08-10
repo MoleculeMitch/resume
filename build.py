@@ -8,10 +8,10 @@ def write_page(title, filename, output, pages):
     template_html = open('templates/base.html').read()
     template = Template(template_html)
     result = template.render(
-        pages = pages,
-        title = title,
-        content = open(filename).read(),
-        output = open(output).read(),
+        pages_list = pages,
+        current_page_title = title,
+        html_contents = open(filename).read(),
+        docs_output = open(output).read(),
     )
     
     open(output, 'w+').write(result)

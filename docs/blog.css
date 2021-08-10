@@ -36,10 +36,10 @@
     color: var(--txt-color);
 }
 
-.blog-linkedin{
+.blog_linkedin{
     color: var(--gold);
 }
-.blog-github{
+.blog_github{
     color: var(--purple);
 }
 

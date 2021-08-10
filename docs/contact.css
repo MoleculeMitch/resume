@@ -44,10 +44,10 @@ input, textarea{
 ::placeholder{
     padding-left: .2rem;
 }
-.contact-linkedin{
+.contact_linkedin{
     color: var(--purple);
 }
-.contact-github {
+.contact_github {
     color: var(--green);
 }
 

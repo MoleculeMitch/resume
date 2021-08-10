@@ -32,16 +32,12 @@
         <div class='row menu-row'> 
             <div class='col'>
                 <ul class='menu'>
-                    {% for page in pages %}
+                    {% for page in pages_list %}
                             <li> 
-                                <a href='{{page.clipped_filename}}' class='{%if page.title == "ABOUT"%} active {% endif %}'> {{page.title}}
+                                <a href='{{page.clipped_filename}}' class='{%if page.title == current_page_title %} active {% endif %}'> {{page.title}}
                                 </a>
                             </li>
                     {% endfor %}
-                    
-                    <!-- <li><a href='./index.html' class='active'> ABOUT </a></li>
-                    <li> <a href='./blog.html' class= 'active'> BLOG </a></li>
-                    <li> <a href='./contact.html' class= 'active'> CONTACT </a></li>   -->
                 </ul>
             </div>
         </div>
@@ -49,15 +45,23 @@
         
 
         <!-- this is the content place holder -->
-        {{content}}
+        {{html_contents}}
 
 
         <!-- bottom template -->
         <div class='row'>
             <div class='col-fluid footer-col'>
                 <div class='footer-wrapper'>
-                    <i class="fab fa-linkedin {{linkedin}}"></i>
-                    <i class="fab fa-github {{github}}"></i>
+                    {%if current_page_title == "ABOUT"%}
+                        <i class="fab fa-linkedin about_linkedin"></i>
+                        <i class="fab fa-github about_github"></i>
+                    {%elif current_page_title == "BLOG"%}
+                        <i class="fab fa-linkedin blog_linkedin"></i>
+                        <i class="fab fa-github blog_github"></i>
+                    {%else%}
+                        <i class="fab fa-linkedin contact_linkedin"></i>
+                        <i class="fab fa-github contact_github"></i>
+                    {%endif%}
                 </div>
             </div>
         </div>
