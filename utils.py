@@ -53,4 +53,3 @@ def main():
 
         
     pprint.pprint(pages, indent = 2, width = 30)
-main()
