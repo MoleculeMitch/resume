@@ -46,15 +46,9 @@ def main():
             'clipped_filename': clipped_filename,
             'order': order
         })
-    
-    #sort pages into new sort
-    '''
-    page_sort = [1,0,2]
-    if (len(pages) >= 3):
-        for i in range(3, len(pages)):
-            page_sort.append(i)
-    '''
 
+    # this small piece of code sorts the order of new files
+    #populating the page menu
     pages.sort(key=getPageOrder)
 
     for page in pages:
