@@ -12,12 +12,14 @@ all_html_files = glob.glob('contents/*.html')
 all_output_files = glob.glob('docs/*.html')
 
 pages=[]
-for files, file in zip(all_html_files, all_output_files):
+for files in all_html_files:
     filename = os.path.relpath(files)
-    output = os.path.relpath(file)
+    just_filename = os.path.basename(filename)
+    output = 'docs/' + just_filename
     title_parse = os.path.basename(filename).upper()
     title, extension = os.path.splitext(title_parse)
 
+    print('this is output:', output)
 # try moving this block to line 38
     if title == 'INDEX':
         title = 'ABOUT'

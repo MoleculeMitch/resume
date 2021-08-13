@@ -11,18 +11,23 @@ def manage_py():
     </div>
     '''
     print("This is argv:", sys.argv)
-    command = sys.argv[1]
-    print(command)
-    if command == "build":
-        print("Build was specified")
-        main()
-    elif command == "new":
-        print("New page was specified")
-        open('contents/new_content_page.html', 'w+').write(new_contents)
+    if len(sys.argv) == 2:  
+        command = sys.argv[1]
+        print(command)
+        if command == "build":
+            print("Build was specified")
+            main()
+        elif command == "new":
+            print('''New page was specified, be sure to manually create file in /docs directory
+            and update line 42 in utils.py to include new page index''')
+            open('contents/new_content_page.html', 'w+').write(new_contents)
+        else:
+            print(
+                '''Usage:
+                Rebuild site: python manage.py build
+                Create new page: python manage.py new''')
     else:
-        print(
-            '''Usage:
-            Rebuild site: python manage.py build
-            Create new page: python manage.py new'''
-        )
+        print('''Usage:
+                Rebuild site: python manage.py build
+                Create new page: python manage.py new''')
 manage_py()
